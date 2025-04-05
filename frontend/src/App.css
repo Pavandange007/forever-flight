@@ -1,0 +1,169 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  min-height: 100vh;
+  overflow: hidden;
+  color: #e0e0e0;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #4f46e5aa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #4338caaa);
+}
+
+.card {
+  padding: 2em;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+.input-group {
+  margin: 1rem 0;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #e0e0e0;
+  font-weight: 500;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: #e0e0e0;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+.button {
+  background: #4f46e5;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+  background: #4338ca;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Plane Animation */
+.plane-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  background: transparent;
+}
+
+.plane {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: url('airplane.svg') no-repeat center; /* Fixed the image URL */
+  background-size: contain;
+  animation: fly 30s linear infinite;
+  filter: brightness(0.9) contrast(1); /* Adjusted filter to make it visible */
+  opacity: 0.7; /* Added opacity to make it visible against dark background */
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes fly {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    left: 0;
+    top: 20%;
+  }
+  25% {
+    transform: translateX(25%) translateY(-25%) rotate(-10deg);
+  }
+  50% {
+    transform: translateX(50%) translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateX(75%) translateY(25%) rotate(10deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(0) rotate(0deg);
+    left: 100%;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card {
+    padding: 1.5em;
+  }
+  
+  .plane {
+    width: 30px;
+    height: 30px;
+  }
+}
